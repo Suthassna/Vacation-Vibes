@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
 use App\Models\Hotel\Hotel;
 use App\Models\Apartment\Apartment;
@@ -32,4 +33,27 @@ class HomeController extends Controller
         $rooms =Apartment::select()->orderBy('id', 'desc')->take(4)->get();
         return view('home', compact('hotels', 'rooms'));
     }
+
+    public function about()
+    {
+
+        
+        return view('pages.about');
+    }
+
+    public function services()
+    {
+
+        
+        return view('pages.services');
+    }
+    public function contact()
+    {
+
+        
+        return view('pages.contact');
+    }
+
+
+
 }

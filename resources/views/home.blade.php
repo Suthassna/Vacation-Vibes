@@ -24,12 +24,12 @@
                 @foreach($hotels as $hotel)
                     <div class="col-md-4 d-flex services align-self-stretch px-4 ftco-animate">
                         <div class="d-block services-wrap text-center">
-                        <div class="img" style="background-image: url({{asset('assets/images/'.$hotel->image)}});"></div>
+                        <div class="img" style="background-image: url({{asset('Assets/images/'.$hotel->image)}});"></div>
                         <div class="media-body py-4 px-3">
                             <h3 class="heading">{{$hotel->name}}</h3>
                             <p>{{$hotel->description}}</p>
                             <p>{{$hotel->location}}</p>
-                            <p><a href="rooms.html" class="btn btn-primary">View rooms</a></p>
+                            <p><a href="{{route('hotel.rooms', $hotel->id)}}" class="btn btn-primary">View rooms</a></p>
                         </div>
                         </div>      
                     </div>     
@@ -54,17 +54,17 @@
                     @foreach ($rooms as $room)
                         <div class="col-lg-6">
                             <div class="room-wrap d-md-flex">
-                                <a href="#" class="img" style="background-image: url({{ asset('assets/images/'.$room->image)}});"></a>
+                                <a href="{{ route('hotel.rooms.details', $room->id) }}" class="img" style="background-image: url({{ asset('Assets/images/'.$room->image)}});"></a>
                                 <div class="half left-arrow d-flex align-items-center">
                                     <div class="text p-4 p-xl-5 text-center">
                                         <p class="star mb-0"><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span></p>
-                                        <p class="mb-0"><span class="price mr-1">{{$room->price}}</span> <span class="per">per night</span></p>
-                                        <h3 class="mb-3"><a href="rooms.html">{{$room->name}}</a></h3>
+                                        <p class="mb-0"><span class="price mr-1">$ {{$room->price}}</span> <span class="per">per night</span></p>
+                                        <h3 class="mb-3"><a href="{{ route('hotel.rooms.details', $room->id) }}">{{$room->name}}</a></h3>
                                         <ul class="list-accomodation">
                                             <li><span>View: Garden View</span> </li>
                                             
                                         </ul>
-                                        <p class="pt-1"><a href="room-single.html" class="btn-custom px-3 py-2">View Room Details <span class="icon-long-arrow-right"></span></a></p>
+                                        <p class="pt-1"><a href="{{ route('hotel.rooms.details', $room->id) }}" class="btn-custom px-3 py-2">View Room Details <span class="icon-long-arrow-right"></span></a></p>
                                     </div>
                                 </div>
                             </div>
